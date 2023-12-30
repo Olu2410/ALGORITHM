@@ -1,0 +1,36 @@
+function analyzeSentence(sentence) {
+    // Initialize counters
+    let sentenceLength = 0;
+    let wordCount = 0;
+    let vowelCount = 0;
+
+    // Iterate through each character in the sentence
+    for (let i = 0; i < sentence.length; i++) {
+        // Increment the sentence length
+        sentenceLength++;
+
+        // Check if the character is a space to identify words
+        if (sentence[i].match(/\s/)) {
+            wordCount++;
+        }
+
+        // Check if the character is a vowel (case-insensitive)
+        if (/[aeiou]/i.test(sentence[i])) {
+            vowelCount++;
+        }
+    }
+
+    // Consider the last word after the last space
+    if (sentenceLength > 0 && !/\s/.test(sentence[sentence.length - 1])) {
+        wordCount++;
+    }
+
+    // Display the results
+    console.log("Length of the sentence:", sentenceLength);
+    console.log("Number of words in the sentence:", wordCount);
+    console.log("Number of vowels in the sentence:", vowelCount);
+}
+
+// Example usage
+let inputSentence = prompt("Enter a sentence ending with a point: ");
+analyzeSentence(inputSentence);

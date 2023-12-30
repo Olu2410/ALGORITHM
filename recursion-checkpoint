@@ -1,0 +1,20 @@
+function isPalindrome(word) {
+    // Convert the word to lowercase to make the comparison case-insensitive
+    word = word.toLowerCase();
+    
+    // Remove spaces from the word
+    word = word.replace(/\s/g, "");
+    
+    // Check if the word is equal to its reverse
+    return word === word.split("").reverse().join("");
+}
+
+// Example usage
+const wordToTest = "Racecar";
+const result = isPalindrome(wordToTest);
+
+if (result) {
+    console.log(`${wordToTest} is a palindrome.`);
+} else {
+    console.log(`${wordToTest} is not a palindrome.`);
+}
